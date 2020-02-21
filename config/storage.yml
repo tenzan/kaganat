@@ -13,6 +13,7 @@ amazon:
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   region: us-west-1
   bucket: kaganat
+  endpoint: https://s3.us-west-1.wasabisys.com
 # Remember not to checkin your GCS keyfile to a repository
 # google:
 #   service: GCS
