@@ -55,7 +55,12 @@
   <%= @booking.customer_id %>
 </p>
 
- <%= image_tag image.preview(resize_to_limit: [100, 100]) %>
+<% @booking.images.each do |image| %>
 
+  <p>
+  <%= image_tag("https://s3.us-west-1.wasabisys.com/kaganat/#{image.filename}") %>
+  </p>
+
+<% end %>
 <%= link_to 'Edit', edit_customer_booking_path(@customer, @booking) %> |
 <%= link_to 'Back', customer_bookings_path %>

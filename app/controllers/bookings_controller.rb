@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = @customer.bookings.build(booking_params)
-    @booking.images.attach(booking_params[:images])
 
     respond_to do |format|
       if @booking.save
@@ -76,6 +75,6 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:name, :category, :rooms, :wifi, :phone, :address, :description, :available, :check_in, :check_out, :customer_id)
+    params.require(:booking).permit(:name, :category, :rooms, :wifi, :phone, :address, :description, :available, :check_in, :check_out, :customer_id, images: [])
   end
 end
