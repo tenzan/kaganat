@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @booking.type %>
+  <strong>Category:</strong>
+  <%= @booking.category %>
 </p>
 
 <p>
@@ -55,5 +55,5 @@
   <%= @booking.customer_id %>
 </p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Edit', edit_customer_booking_path(@customer, @booking) %> |
+<%= link_to 'Back', customer_bookings_path %>
