@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all.with_attached_images
   end
 
   # GET /bookings/1
@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = @customer.bookings.build(booking_params)
+    @booking.images.attach(booking_params[:images])
 
     respond_to do |format|
       if @booking.save
