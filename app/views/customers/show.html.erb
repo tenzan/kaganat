@@ -50,7 +50,7 @@
         <td><%= booking.available %></td>
         <td><%= booking.check_in %></td>
         <td><%= booking.check_out %></td>
-        <td><%= link_to 'Show', customer_booking_url(@customer) %></td>
+        <td><%= link_to 'Show', customer_booking_url(@customer, booking) %></td>
         <td><%= link_to 'Edit', edit_customer_booking_path(booking) %></td>
       </tr>
     <% end %>
