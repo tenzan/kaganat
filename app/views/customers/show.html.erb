@@ -17,3 +17,42 @@
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+
+<h1>Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Rooms</th>
+      <th>Wifi</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Available</th>
+      <th>Check in</th>
+      <th>Check out</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.name %></td>
+        <td><%= booking.category %></td>
+        <td><%= booking.rooms %></td>
+        <td><%= booking.wifi %></td>
+        <td><%= booking.phone %></td>
+        <td><%= booking.address %></td>
+        <td><%= booking.description %></td>
+        <td><%= booking.available %></td>
+        <td><%= booking.check_in %></td>
+        <td><%= booking.check_out %></td>
+        <td><%= link_to 'Show', customer_booking_url(@customer) %></td>
+        <td><%= link_to 'Edit', edit_customer_booking_path(booking) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
