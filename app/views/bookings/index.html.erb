@@ -12,7 +12,7 @@
       <th>Address</th>
       <th>Description</th>
       <th>Available</th>
-      <th colspan="1"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -26,6 +26,16 @@
         <td><%= booking.address %></td>
         <td><%= booking.description %></td>
         <td><%= booking.available %></td>
+
+        <td>
+        <% booking.images.each do |image| %>
+
+          <p>
+          <%= image_tag image.variant(resize_to_limit: [200, 200]) %>
+          </p>
+
+        <% end %>
+        </td>
         <td><%= link_to 'Show', customer_booking_url(booking.customer_id, booking)  %></td>
       </tr>
     <% end %>
