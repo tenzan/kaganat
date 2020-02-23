@@ -1,6 +1,6 @@
 <h1>Editing Booking</h1>
 
-<%= render 'form', booking: @booking %>
+<%= render 'form', customer: @customer, booking: @booking %>
 
-<%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Show', customer_booking_url(@customer, @booking)  %> |
+<%= link_to 'Back', customer_bookings_path %>

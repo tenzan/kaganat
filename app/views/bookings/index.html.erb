@@ -34,9 +34,9 @@
         <td><%= booking.check_in %></td>
         <td><%= booking.check_out %></td>
         <td><%= booking.customer_id %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customer_booking_url(@customer, booking)  %></td>
+        <td><%= link_to 'Edit', edit_customer_booking_path(@customer, booking) %></td>
+        <td><%= link_to 'Destroy', [@customer, booking], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Booking', new_booking_path %>
+<%= link_to 'New Booking', new_customer_booking_path(@customer) %>

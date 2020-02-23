@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @customer, notice: 'Booking was successfully created.' }
+        format.html { redirect_to [@customer, @booking], notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }

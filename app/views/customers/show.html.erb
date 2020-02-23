@@ -53,14 +53,16 @@
         <td><%= booking.check_in %></td>
         <td><%= booking.check_out %></td>
         <td><%= link_to 'Show', customer_booking_url(@customer, booking) %></td>
-        <td><%= link_to 'Edit', edit_customer_booking_path(booking) %></td>
+        <td><%= link_to 'Edit', edit_customer_booking_path(@customer, booking) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <% else %>
-<h2>You don't have any bookings at the moment.</h2>
+
+<p><i>You don't have any bookings at the moment.</i></p>
+
 <% end %>
 
 <%= link_to 'New Booking', new_customer_booking_path(@customer) %>
