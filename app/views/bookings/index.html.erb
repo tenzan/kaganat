@@ -1,43 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bookings</h1>
+<% @bookings.each do |booking| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Rooms</th>
-      <th>Wifi</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th>Available</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
 
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.name %></td>
-        <td><%= booking.category %></td>
-        <td><%= booking.rooms %></td>
-        <td><%= booking.wifi %></td>
-        <td><%= booking.address %></td>
-        <td><%= booking.description %></td>
-        <td><%= booking.available %></td>
+      <%= image_tag booking.images.first.variant(resize_to_limit: [200, 200]), class: "card-img" %>
 
-        <td>
-        <% booking.images.each do |image| %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= booking.name %></h5>
+        <div class="card-text">
 
-          <p>
-          <%= image_tag image.variant(resize_to_limit: [200, 200]) %>
-          </p>
+            <ul><%= booking.category %></ul>
+            <ul><%= booking.rooms %></ul>
+            <ul><%= booking.wifi %></ul>
+            <ul><%= booking.description %></ul>
+            <ul><small class="text-muted">Created <%= time_ago_in_words(booking.created_at) %> ago</small></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <% end %>
-        </td>
-        <td><%= link_to 'Show', customer_booking_url(booking.customer_id, booking)  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+ <% end %>
