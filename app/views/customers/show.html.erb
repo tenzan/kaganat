@@ -18,6 +18,8 @@
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
 
+<% if @customer.bookings.size > 0 %>
+
 <h1>Bookings</h1>
 
 <table>
@@ -56,3 +58,9 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+<h2>You don't have any bookings at the moment.</h2>
+<%= link_to 'New Booking', new_customer_booking_path(@customer) %>
+
+<% end %>
