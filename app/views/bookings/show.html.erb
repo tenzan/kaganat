@@ -60,7 +60,7 @@
 <% @booking.images.each do |image| %>
 
   <p>
-  <%= image_tag("https://s3.us-west-1.wasabisys.com/kaganat/#{image.key}") %>
+  <%= image_tag image.variant(resize_to_limit: [500, 500]) %>
   </p>
 
 <% end %>
