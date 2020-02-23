@@ -57,7 +57,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to customer_bookings_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to @customer, notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
